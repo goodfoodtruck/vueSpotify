@@ -1,3 +1,5 @@
+const TOKEN = process.env.APP_ID
+
 const getUrlParameter = (sParam) => {
     let sPageURL = window.location.search.substring(1),
         sURLVariables = sPageURL != undefined && sPageURL.length > 0 ? sPageURL.split('#') : [],
@@ -18,7 +20,7 @@ export default {
 
     getAuth() {
 
-        let client_id = 'cb19de5fb2c347baaa08ad98980d11e1';
+        let client_id = TOKEN;
         let redirect_uri = encodeURIComponent('http://localhost:8080/');
 
         const redirect = `https://accounts.spotify.com/authorize?client_id=${client_id}&scope=user-top-read&response_type=token&redirect_uri=${redirect_uri}`;
